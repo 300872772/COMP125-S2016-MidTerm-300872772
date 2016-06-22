@@ -1,10 +1,74 @@
-// setup your IIFE (Immediately Invoked Function Expression)
+/**
+ * FileName: app.js
+ * @author: Md Mamunur Rahman
+ * website: http://comp125-s2016-midterm-300872772.azurewebsites.net
+ * @description: This file is the main javascript file for this web site
+ */
+
+// IIFE (Immediately Invoked Function Expression)
 (function () {
-"use strict";
+    "use strict";
 
 
+    /**
+     * This function calls all other functions 
+     * 
+     * @function InitialFunction
+     * @returns {void}
+     */
+    function InitialFunction() {
+
+        ContatctFormEventHandling();
+    }
+
+    /**
+     * This functionhanding event for conatct form
+     * 
+     * @function ContatctFormEventHandling
+     * @returns {void}
+     */
+    function ContatctFormEventHandling() {
+
+        var contactForm = document.getElementById("contactForm").addEventListener("submit", getFormData);
+
+    }
+
+    /**
+     * This function collect data from element of form in concat page
+     * 
+     * @function getFormData
+     * @param {object} event
+     * @returns {void}
+     */
+    function getFormData(event) {
+
+        event.preventDefault();
+
+        firstName = document.getElementById("firstName");
+        lastName = document.getElementById("lastName");
+        contactNumber = document.getElementById("contactNumber");
+        email = document.getElementById("email");
+        yourMessage = document.getElementById("yourMessage");
+
+        displaFormData();
+
+        contactForm.reset();
+    }
+
+    function displaFormData() {
+
+        console.log("++++++++++++++++++++++++++++++++++++++++++");
+        console.log("First Name: " + firstName.value);
+        console.log("Last Name: " + lastName.value);
+        console.log("Email: " + email.value);
+        console.log("Contact Number: " + contactNumber.value);
+        console.log("Your Message: " + yourMessage.value);
+        console.log("++++++++++++++++++++++++++++++++++++++++++");
 
 
+    }
 
+
+    window.addEventListener("load", InitialFunction);
 })();
 
